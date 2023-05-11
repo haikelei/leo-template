@@ -1,15 +1,11 @@
-import { defineConfig } from 'vite'
-import uni from '@dcloudio/vite-plugin-uni'
-import path from 'path'
-import Unocss from 'unocss/vite'
+import { defineConfig } from 'vite';
+import uni from '@dcloudio/vite-plugin-uni';
+import path from 'path';
+import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss-webpack-plugin/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    uni(),
-    // https://github.com/antfu/unocss
-    Unocss()
-  ],
+  plugins: [uni(), uvtw()],
   server: {
     // port: 8080,
     host: '0.0.0.0',
@@ -42,6 +38,9 @@ export default defineConfig({
       less: {
         additionalData: '@import "@/styles/vars/_base.less";'
       }
+    },
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')]
     }
   }
-})
+});

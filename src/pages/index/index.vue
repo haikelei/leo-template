@@ -1,8 +1,7 @@
 <template>
   <view class="index-page">
     <Hello />
-    <UnoCss />
-    <view class="u-flex-row">
+    <view>
       <view>
         <button type="primary" size="mini" @click="goTo1">跳转到活动1</button>
       </view>
@@ -10,7 +9,7 @@
         <button type="primary" size="mini" @click="goTo2">跳转到活动2</button>
       </view>
     </view>
-    <text class="h2"> 查看其它页面示例↓ </text>
+    <text class="text-base"> 查看其它页面示例↓ </text>
     <view>
       <navigator v-for="(v, idx) in pages" :key="idx" :url="v.url">{{
         v.title
