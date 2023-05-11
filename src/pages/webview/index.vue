@@ -1,14 +1,19 @@
 <template>
   <view class="index-page">
-    <web-view src="https://www.baidu.com"></web-view>
+    <web-view :src="link"></web-view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { onLoad } from '@dcloudio/uni-app'
+import { ref } from 'vue'
 
+const link = ref('')
+onLoad((query) => {
+  console.log(query)
+  link.value = decodeURIComponent(query?.link || '')
+})
 </script>
-
 <style scoped>
 .index-page {
   font-style: normal;

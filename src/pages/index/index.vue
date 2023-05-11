@@ -2,10 +2,13 @@
   <view class="index-page">
     <Hello />
     <UnoCss />
-    <view>
-      <button type="primary" size="mini" @click="goTo('/pages/webview/index')">
-        跳转到webview
-      </button>
+    <view class="u-flex-row">
+      <view>
+        <button type="primary" size="mini" @click="goTo1">跳转到活动1</button>
+      </view>
+      <view>
+        <button type="primary" size="mini" @click="goTo2">跳转到活动2</button>
+      </view>
     </view>
     <text class="h2"> 查看其它页面示例↓ </text>
     <view>
@@ -20,6 +23,7 @@
 import { reactive } from 'vue'
 import Hello from '@/components/hello/index.vue'
 import UnoCss from '@/components/unocss/index.vue'
+import { addParams } from '@/utils/urlUtils'
 
 const pages = reactive([
   {
@@ -39,7 +43,19 @@ const pages = reactive([
     url: '/pages/unocss/index'
   }
 ])
-const goTo = (url: string) => {
+const goTo1 = () => {
+  const url = addParams('/pages/webview/index', {
+    link: 'https://act.thehour.cn/clockin/event/8'
+  })
+  uni.navigateTo({
+    url
+  })
+}
+
+const goTo2 = () => {
+  const url = addParams('/pages/webview/index', {
+    link: 'https://h5.zjol.com.cn/material/qy_form/index.html?applyId=29&type=tmForm&nav_crystal=1&ref_aid=2419096#/noTm'
+  })
   uni.navigateTo({
     url
   })
