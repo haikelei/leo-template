@@ -6,10 +6,10 @@
   </view>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { userApi } from '@/api'
+import { ref } from "vue";
+import { userApi } from "@/api";
 
-const phone = ref('12345678901')
+const phone = ref("12345678901");
 
 const getCode = () => {
   userApi
@@ -17,23 +17,24 @@ const getCode = () => {
     .then((v) => {
       uni.showToast({
         title: `${v.num}`,
-        icon: 'success'
-      })
+        icon: "success",
+      });
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       uni.showToast({
-        title: '获取验证码失败',
-        icon: 'error'
-      })
-    })
-}
+        title: "获取验证码失败",
+        icon: "error",
+      });
+    });
+};
 </script>
 
 <style lang="less" scoped>
 .axios-demo {
   text-align: center;
 }
+
 .title-h1 {
   font-size: 50rpx;
 }

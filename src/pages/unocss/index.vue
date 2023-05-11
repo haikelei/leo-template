@@ -18,8 +18,8 @@
       <view
         class="bg-#3498db/20 text-#3498db rounded px-2 py-1"
         @click="switchFlag"
-        >点我切换</view
-      >
+        >点我切换
+      </view>
     </view>
 
     <view
@@ -37,7 +37,7 @@
       </view>
     </view>
 
-    <view text="lg c2" m="b2 t4">使用 Attributify mode </view>
+    <view text="lg c2" m="b2 t4">使用 Attributify mode</view>
     <view rounded-xl shadow-md flex items-center mx-auto p-5 bg-white>
       <view>
         <view
@@ -85,11 +85,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const flag = ref(true)
+const flag = ref(true);
 
 function switchFlag() {
-  flag.value = !flag.value
+  flag.value = !flag.value;
 }
 </script>

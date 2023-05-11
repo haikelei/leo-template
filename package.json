@@ -35,9 +35,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "cz": "git add . && czg",
-    "postinstall": "simple-git-hooks",
-    "updatehooks": "git config core.hooksPath .git/hooks/ && rm -rf .git/hooks && npx simple-git-hooks"
+    "cz": "git add . && czg"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-alpha-3080220230428002",
@@ -88,7 +86,6 @@
     "postcss": "^8.4.23",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
-    "simple-git-hooks": "^2.8.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^4.7.4",
     "vite": "^3.1.8",
