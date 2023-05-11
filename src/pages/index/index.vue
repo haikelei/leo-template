@@ -2,6 +2,11 @@
   <view class="index-page">
     <Hello />
     <UnoCss />
+    <view>
+      <button type="primary" size="mini" @click="goTo('/pages/webview/index')">
+        跳转到webview
+      </button>
+    </view>
     <text class="h2"> 查看其它页面示例↓ </text>
     <view>
       <navigator v-for="(v, idx) in pages" :key="idx" :url="v.url">{{
@@ -34,6 +39,11 @@ const pages = reactive([
     url: '/pages/unocss/index'
   }
 ])
+const goTo = (url: string) => {
+  uni.navigateTo({
+    url
+  })
+}
 </script>
 
 <style scoped>

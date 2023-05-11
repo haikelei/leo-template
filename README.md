@@ -1,10 +1,28 @@
-# LEO-雷欧
-
-## 潮新闻小程序跨平台框架
+# LEO-潮新闻小程序跨平台框架
 
 ## 技术选型
+### 架构: uni-app + Vue3 + TypeScript + Vite
+### UI框架: uni-app内置组件 uView 
+### 状态管理: Pinia
+### CSS框架: Unocss
 
-uni-app Vue3 + TypeScript + Vite + Pinia + Unocss 模板项目
+## 框架介绍
+### uni-app:
+一个基于Vue.js的多端开发框架，可以快速创建小程序、H5和App。注意默认组件使用的是uni-app的组件，而不是uView的组件。
+[uni-app组件官方地址](https://uniapp.dcloud.net.cn/component/view.html#)
+
+### Vue3:
+最新的Vue.js版本，带来了更快的性能和更好的开发体验。
+### TypeScript:
+一种强类型的JavaScript超集，提供了更好的类型检查和代码提示。
+### Vite:
+一款基于ESM的开发服务器，可以实现快速的开发环境搭建和热更新。
+### Pinia:
+一个状态管理库，可以帮助我们更好地管理应用的状态，并提供更好的性能。
+### UnoCss:
+一个轻量级的CSS框架，可以帮助我们更快速地构建页面样式。注意,我们引入的是unocss-preset-weapp,参考[UnoCss文档](https://playful-gumption-4bb42b.netlify.app/#/)
+### uView
+uView是一个uni-app的扩展UI组件库，我们可以在其[官方文档](https://www.uviewui.com/components/intro.html)中找到所有组件的文档。该文档包含了每个组件的详细说明、API文档和示例代码，非常适合开发者学习和使用。
 
 支持跨平台小程序，H5
 
@@ -93,12 +111,3 @@ export default defineConfig({
 ```
 
 添加 `baseUrl` 和 `paths` 参数，就可以完美解决编辑器的报错提示了！
-
-## 原子化 css
-
-- [unocss](https://github.com/unocss/unocss) - 即时按需原子 css 引擎
-- [unocss-preset-weapp](https://github.com/MellowCo/unocss-preset-weapp) - 兼容小程序 unocss 预设
-
-> 支持小程序，h5，app
-
-![](https://fastly.jsdelivr.net/gh/MellowCo/image-host/2022/202211121156442.png)
