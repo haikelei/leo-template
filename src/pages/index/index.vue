@@ -12,7 +12,7 @@
       </view>
       <view>
         <button type="primary" size="mini" @click="goTo2">
-          跳转到原生小程序
+          跳转到原生活动
         </button>
       </view>
     </view>
@@ -60,11 +60,8 @@ const goTo1 = () => {
 };
 
 const goTo2 = () => {
-  const url = addParams('/pages/webview/index', {
-    link: 'https://h5.zjol.com.cn/material/qy_form/index.html?applyId=29&type=tmForm&nav_crystal=1&ref_aid=2419096#/noTm'
-  });
   uni.navigateTo({
-    url
+    url: '/pages/smashEgg/index'
   });
 };
 </script>

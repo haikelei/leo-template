@@ -36,6 +36,12 @@
       "style": {
         "navigationBarTitleText": "跨平台能力展示"
       }
+    },
+    {
+      "path": "pages/smashEgg/index",
+      "style": {
+        "navigationBarTitleText": "砸金蛋"
+      }
     }
   ],
   "globalStyle": {
