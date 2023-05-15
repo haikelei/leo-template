@@ -3,10 +3,17 @@
     <Hello />
     <view>
       <view>
-        <button type="primary" size="mini" @click="goTo1">跳转到活动1</button>
+        <button type="primary" size="mini" @click="goToPlatformAbility">
+          跨平台能力展示
+        </button>
       </view>
       <view>
-        <button type="primary" size="mini" @click="goTo2">跳转到活动2</button>
+        <button type="primary" size="mini" @click="goTo1">跳转到活动H5</button>
+      </view>
+      <view>
+        <button type="primary" size="mini" @click="goTo2">
+          跳转到原生小程序
+        </button>
       </view>
     </view>
     <text class="text-base"> 查看其它页面示例↓</text>
@@ -19,43 +26,45 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import Hello from "@/components/hello/index.vue";
-import { addParams } from "@/utils/urlUtils";
+import { reactive } from 'vue';
+import Hello from '@/components/hello/index.vue';
+import { addParams } from '@/utils/urlUtils';
 
 const pages = reactive([
   {
-    title: "Pinia Demo",
-    url: "/pages/pinia/index",
+    title: 'Pinia Demo',
+    url: '/pages/pinia/index'
   },
   {
-    title: "Axios Demo",
-    url: "/pages/axios/index",
+    title: 'Axios Demo',
+    url: '/pages/axios/index'
   },
   {
-    title: "uView Demo",
-    url: "/pages/uview/index",
-  },
-  {
-    title: "UnoCSS Demo",
-    url: "/pages/unocss/index",
-  },
+    title: 'uView Demo',
+    url: '/pages/uview/index'
+  }
 ]);
+
+const goToPlatformAbility = () => {
+  uni.navigateTo({
+    url: '/pages/platformAbility/index'
+  });
+};
 const goTo1 = () => {
-  const url = addParams("/pages/webview/index", {
-    link: "https://act.thehour.cn/clockin/event/8",
+  const url = addParams('/pages/webview/index', {
+    link: 'https://act.thehour.cn/clockin/event/8'
   });
   uni.navigateTo({
-    url,
+    url
   });
 };
 
 const goTo2 = () => {
-  const url = addParams("/pages/webview/index", {
-    link: "https://h5.zjol.com.cn/material/qy_form/index.html?applyId=29&type=tmForm&nav_crystal=1&ref_aid=2419096#/noTm",
+  const url = addParams('/pages/webview/index', {
+    link: 'https://h5.zjol.com.cn/material/qy_form/index.html?applyId=29&type=tmForm&nav_crystal=1&ref_aid=2419096#/noTm'
   });
   uni.navigateTo({
-    url,
+    url
   });
 };
 </script>

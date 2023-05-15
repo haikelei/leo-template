@@ -26,15 +26,15 @@
       }
     },
     {
-      "path": "pages/unocss/index",
-      "style": {
-        "navigationBarTitleText": "UnoCSS 示例"
-      }
-    },
-    {
       "path": "pages/webview/index",
       "style": {
         "navigationBarTitleText": "webview示例"
+      }
+    },
+    {
+      "path": "pages/platformAbility/index",
+      "style": {
+        "navigationBarTitleText": "跨平台能力展示"
       }
     }
   ],

@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const title = ref('Hello')
+const title = ref('Leo');
 </script>
 
 <style scoped>
