@@ -11,8 +11,8 @@
     <view class="remaining">剩余次数：{{ remainingNum }}次</view>
 
     <view class="main">
-      <u-row class="ml-4">
-        <u-col span="3" v-for="(item, index) in list" :key="index">
+      <view class="grid grid-cols-3">
+        <view v-for="(item, index) in list" :key="index">
           <view class="item" @tap.stop="smash(item)">
             <!-- 蛋 -->
             <image
@@ -59,9 +59,15 @@
               <image src="@/static/images/hammer.png" mode="aspectFill" />
             </view>
           </view>
-        </u-col>
-      </u-row>
+        </view>
+      </view>
     </view>
+
+    <u-popup v-model="forbiddenPlay" mode="center" :mask-close-able="false">
+      <view>
+        <text class="text-white text-lg">请到潮新闻App或者小程序体验</text>
+      </view>
+    </u-popup>
 
     <!-- 奖品弹窗 -->
     <u-popup v-model="prizeVisible" mode="center">
@@ -99,13 +105,17 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { isTMH5Environment } from '@/utils/tmUtils';
 
 const remainingNum = ref(5);
 const eggNum = ref(9);
 const list = ref([]);
-const prizeVisible = ref(true);
+const prizeVisible = ref(false);
 const process = ref(false);
-
+const forbiddenPlay = ref(false);
+// #ifdef H5
+forbiddenPlay.value = !isTMH5Environment();
+// #endif
 onMounted(() => {
   list.value = new Array(eggNum.value).fill().map(() => {
     return {
@@ -207,9 +217,9 @@ const closePrize = () => {
   .main {
     position: absolute;
     top: 840rpx;
-    width: 100%;
     height: 730rpx;
-    margin: 0 54rpx;
+    width: 640rpx;
+    left: 55rpx;
 
     .item {
       display: flex;

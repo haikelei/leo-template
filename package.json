@@ -92,6 +92,8 @@
     "vite-plugin-eslint": "^1.6.1",
     "vitest": "^0.16.0",
     "weapp-tailwindcss-webpack-plugin": "^2.2.0",
-    "vconsole": "^3.15.0"
+    "vconsole": "^3.15.0",
+    "crypto-js": "^4.1.1",
+    "@types/crypto-js": "^4.1.1"
   }
 }

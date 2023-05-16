@@ -6,7 +6,7 @@ export const setUserInfoStorage = (userInfo: UserInfo) => {
 export const getUserInfoStorage = (): Promise<UserInfo> => {
   return new Promise((resolve, reject) => {
     const userInfo = uni.getStorageSync('userInfo');
-    if (userInfo) {
+    if (userInfo && userInfo.token) {
       resolve(userInfo);
     } else {
       reject();

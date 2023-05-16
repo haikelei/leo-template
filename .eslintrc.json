@@ -20,14 +20,24 @@
     "plugin:vue/vue3-essential",
     "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["vue", "@typescript-eslint", "todo-ddl"],
+  "plugins": [
+    "vue",
+    "@typescript-eslint",
+    "todo-ddl"
+  ],
   "rules": {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/extensions": "off",
-    "quotes": ["warn", "single"],
-    "semi": ["warn", "always"],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
     "import/no-unresolved": "off",
     "todo-ddl/diy": "warn",
     "import/prefer-default-export": "off",
@@ -44,6 +54,7 @@
     "vue/multi-word-component-names": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "no-use-before-define": "off"
   }
 }

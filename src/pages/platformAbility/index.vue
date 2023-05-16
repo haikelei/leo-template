@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app';
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { getUserInfo, setUserInfo } from '@/utils/userUtils';
 
 const userAgent = ref('');
@@ -39,6 +39,10 @@ const message = ref('');
 message.value = JSON.stringify(getUserInfo());
 onLoad((query) => {
   console.log(query);
+});
+
+onMounted(() => {
+  onClickGetUserInfo();
 });
 
 const isLogined = computed(() => {
@@ -57,21 +61,9 @@ const onClickGetUserInfo = () => {
 };
 // 模拟登录,3秒后存入存储
 const onClickLogin = () => {
-  uni.showLoading({
-    title: '登录中'
+  uni.navigateTo({
+    url: '/pages/login/index'
   });
-  setTimeout(() => {
-    uni.hideLoading();
-    setUserInfo({
-      name: '张三',
-      phone: '13888888888',
-      token: '1234324qwertyyuudsafg'
-    });
-    message.value = JSON.stringify(getUserInfo());
-    uni.showToast({
-      title: '登录成功'
-    });
-  }, 2000);
 };
 const onClickLogout = () => {
   uni.showLoading({
