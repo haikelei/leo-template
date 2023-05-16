@@ -32,8 +32,7 @@
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app';
 import { computed, ref } from 'vue';
-import { getUserInfo, setUserInfo } from '@/utils/storageUtils';
-import Utils from '@/utils/tmsdk.js';
+import { getUserInfo, setUserInfo } from '@/utils/userUtils';
 
 const userAgent = ref('');
 const message = ref('');
@@ -47,7 +46,14 @@ const isLogined = computed(() => {
 });
 
 const onClickGetUserInfo = () => {
-  console.log(getUserInfo());
+  getUserInfo()
+    .then((userInfo) => {
+      console.log('userInfo', userInfo);
+      message.value = JSON.stringify(userInfo);
+    })
+    .catch((err) => {
+      console.log('err', err);
+    });
 };
 // 模拟登录,3秒后存入存储
 const onClickLogin = () => {
@@ -85,9 +91,9 @@ const onClickUA = () => {
   userAgent.value = uni.getSystemInfoSync().ua;
 };
 const onClickJSSDK = () => {
-  Utils.jsdk((obj: any) => {
-    message.value = JSON.stringify(obj);
-  }, true);
+  // Utils.jsdk((obj: any) => {
+  //   message.value = JSON.stringify(obj);
+  // }, true);
 };
 </script>
 <style scoped></style>

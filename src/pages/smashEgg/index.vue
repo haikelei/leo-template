@@ -11,8 +11,8 @@
     <view class="remaining">剩余次数：{{ remainingNum }}次</view>
 
     <view class="main">
-      <u-row>
-        <u-col :span="8" v-for="(item, index) in list" :key="index">
+      <u-row class="ml-4">
+        <u-col span="3" v-for="(item, index) in list" :key="index">
           <view class="item" @tap.stop="smash(item)">
             <!-- 蛋 -->
             <image
@@ -62,6 +62,38 @@
         </u-col>
       </u-row>
     </view>
+
+    <!-- 奖品弹窗 -->
+    <u-popup v-model="prizeVisible" mode="center">
+      <view class="prize">
+        <image
+          src="@/static/images/prize.png"
+          mode="aspectFill"
+          class="prize-bgc"
+        />
+
+        <!-- 奖品内容 -->
+        <view class="content">
+          <!-- 奖品标题 -->
+          <text class="prize-title">恭喜您获得</text>
+          <!-- 提示 -->
+          <text class="prize-tips">-新人百元补贴 分享领取-</text>
+          <!-- 奖金 -->
+          <view class="prize-bonus">
+            <text class="price">88</text>
+            <text class="unit">元</text>
+          </view>
+          <!-- 按钮 -->
+          <view class="btn">
+            <u-button round>分享好友即可领取</u-button>
+          </view>
+        </view>
+      </view>
+      <!-- 关闭按钮 -->
+      <view class="close" @tap="closePrize">
+        <image src="@/static/images/close.png" mode="aspectFill" />
+      </view>
+    </u-popup>
   </view>
 </template>
 
@@ -71,7 +103,7 @@ import { onMounted, ref } from 'vue';
 const remainingNum = ref(5);
 const eggNum = ref(9);
 const list = ref([]);
-const prizeVisible = ref(false);
+const prizeVisible = ref(true);
 const process = ref(false);
 
 onMounted(() => {
@@ -88,15 +120,44 @@ onMounted(() => {
   });
 });
 
-const smash = (item) => {
-  // ... Your method code here ...
+// 砸蛋函数
+const smash = async (item: any) => {
+  if (remainingNum.value <= 0) {
+    uni.showToast({
+      title: '你没有剩余次数了',
+      icon: 'none'
+    });
+    return;
+  }
+
+  if (!item.eggVisibel) return;
+  item.hammerVisible = true;
+  await sleep(2000);
+
+  item.eggVisibel = false;
+  item.hammerVisible = false;
+  remainingNum.value -= 1;
+
+  // 如果中奖
+  if (Math.random() > 0.5) {
+    item.winLotter = true;
+    prizeVisible.value = true;
+  }
 };
 
+// 定义一个sleep函数
+const sleep = (time: any) => {
+  return new Promise((resolve) => setTimeout(resolve, time));
+};
 const closePrize = () => {
   prizeVisible.value = false;
 };
 </script>
 <style scoped lang="less">
+/deep/ .u-mode-center-box {
+  background-color: transparent !important;
+}
+
 .page-smash-egg {
   position: relative;
 
@@ -146,7 +207,7 @@ const closePrize = () => {
   .main {
     position: absolute;
     top: 840rpx;
-    width: calc(100% - 108rpx);
+    width: 100%;
     height: 730rpx;
     margin: 0 54rpx;
 
@@ -213,85 +274,83 @@ const closePrize = () => {
     }
   }
 
-  .cl-popup {
-    .prize {
-      position: relative;
-      width: 621rpx;
-      height: 769rpx;
-      margin-bottom: 40rpx;
+  .prize {
+    position: relative;
+    width: 621rpx;
+    height: 769rpx;
+    margin-bottom: 40rpx;
 
-      &-bgc {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+    &-bgc {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+
+      .prize-title {
+        margin-bottom: 20rpx;
+        font-size: 56rpx;
+        font-weight: 500;
+        color: #ffffff;
       }
 
-      .content {
+      .prize-tips {
+        margin-bottom: 30rpx;
+        font-size: 30rpx;
+        font-weight: 500;
+        color: #feffb3;
+      }
+
+      .prize-bonus {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
+        margin-bottom: 20rpx;
+        font-size: 83rpx;
+        font-weight: bold;
+        color: #feffb3;
+        font-size: 83rpx;
+        font-weight: bold;
+        color: #feffb3;
+      }
 
-        .prize-title {
-          margin-bottom: 20rpx;
-          font-size: 56rpx;
-          font-weight: 500;
-          color: #ffffff;
-        }
+      .btn {
+        margin-bottom: 40rpx;
 
-        .prize-tips {
-          margin-bottom: 30rpx;
-          font-size: 30rpx;
-          font-weight: 500;
-          color: #feffb3;
-        }
+        /deep/ .cl-button {
+          background: linear-gradient(0deg, #ffbe4e 0%, #ffe485 100%);
 
-        .prize-bonus {
-          display: flex;
-          align-items: center;
-          margin-bottom: 20rpx;
-          font-size: 83rpx;
-          font-weight: bold;
-          color: #feffb3;
-          font-size: 83rpx;
-          font-weight: bold;
-          color: #feffb3;
-        }
+          ::after {
+            border: 0;
+          }
 
-        .btn {
-          margin-bottom: 40rpx;
-
-          /deep/ .cl-button {
-            background: linear-gradient(0deg, #ffbe4e 0%, #ffe485 100%);
-
-            ::after {
-              border: 0;
-            }
-
-            &__text {
-              font-size: 28rpx;
-              font-weight: 500;
-              font-style: italic;
-              color: #f41018;
-            }
+          &__text {
+            font-size: 28rpx;
+            font-weight: 500;
+            font-style: italic;
+            color: #f41018;
           }
         }
       }
     }
+  }
 
-    .close {
-      width: 100%;
-      text-align: center;
+  .close {
+    width: 100%;
+    text-align: center;
 
-      image {
-        width: 68rpx;
-        height: 68rpx;
-      }
+    image {
+      width: 68rpx;
+      height: 68rpx;
     }
   }
 }

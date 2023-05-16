@@ -11,3 +11,10 @@
     <u-button size="mini">十年灯</u-button>
   </view>
 </template>
+<script lang="ts" setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log('mounted');
+});
+</script>
