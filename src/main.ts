@@ -1,12 +1,12 @@
-import { createSSRApp } from "vue";
-import * as Pinia from "pinia";
-import uView from "vk-uview-ui";
-import App from "./App.vue";
+import { createSSRApp } from 'vue';
+import * as Pinia from 'pinia';
+import uView from 'vk-uview-ui';
+import App from './App.vue';
 
 // #ifdef H5
 if (process.env.NODE_ENV === 'development') {
   import('vconsole').then((module) => {
-    new module.default();
+    const vconsole = new module.default();
   });
 }
 

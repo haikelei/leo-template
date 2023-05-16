@@ -33,11 +33,12 @@ export function createLocalStorage(options?: {
   }
 
   function get(key: string) {
+    let json: string | null;
     // #ifdef H5
-    const json = window.localStorage.getItem(key);
+    json = window.localStorage.getItem(key);
     // #endif
     // #ifdef MP
-    const json = uni.getStorageSync(key);
+    json = uni.getStorageSync(key);
     // #endif
     if (json) {
       let storageData: StorageData | null = null;
@@ -50,11 +51,14 @@ export function createLocalStorage(options?: {
 
       if (storageData) {
         const { data, expire } = storageData;
-        if (expire === null || expire >= Date.now()) return data;
+        if (expire === null || expire >= Date.now()) {
+          return data;
+        }
       }
       remove(key);
       return null;
     }
+    return null;
   }
 
   function remove(key: string) {
