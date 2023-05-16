@@ -1,17 +1,14 @@
 <template>
-  <view class="w-full flex flex-col pt-4">
+  <view class="w-full flex flex-col pt-4 px-4">
     <view class="w-[700rpx] flex flex-row flex-wrap gap-4">
       <view>
         <button size="mini" type="primary" @click="onClickGetUserInfo">
-          getUserInfo
+          获取用户信息
         </button>
       </view>
       <view>
-        <button size="mini" type="primary" @click="onClickLogin">Login</button>
-      </view>
-      <view>
-        <button size="mini" type="primary" @click="onClickLogout">
-          Logout
+        <button size="mini" type="primary" @click="onClickLogin">
+          {{ isLogined ? '退出登录' : '登录' }}
         </button>
       </view>
       <view>
@@ -21,11 +18,7 @@
         <button size="mini" type="primary" @click="onClickJSSDK">JSSDK</button>
       </view>
     </view>
-    <div class="break-words mt-4">
-      登录状态: {{ isLogined ? '已登录' : '未登录' }}
-    </div>
-    <div class="break-words mt-4">用户信息: {{ message }}</div>
-    <div class="break-words mt-4">UserAgent: {{ userAgent }}</div>
+    <view class="break-words mt-4 bg-gray-200 p-4">{{ message }}</view>
   </view>
 </template>
 
@@ -34,9 +27,7 @@ import { onLoad } from '@dcloudio/uni-app';
 import { computed, onMounted, ref } from 'vue';
 import { getUserInfo, setUserInfo } from '@/utils/userUtils';
 
-const userAgent = ref('');
 const message = ref('');
-message.value = JSON.stringify(getUserInfo());
 onLoad((query) => {
   console.log(query);
 });
@@ -45,42 +36,52 @@ onMounted(() => {
   onClickGetUserInfo();
 });
 
-const isLogined = computed(() => {
-  return message.value !== '' && message.value !== '{}';
-});
+const isLogined = ref(false);
 
 const onClickGetUserInfo = () => {
-  getUserInfo()
+  getUserInfo(true)
     .then((userInfo) => {
       console.log('userInfo', userInfo);
-      message.value = JSON.stringify(userInfo);
+      message.value = `用户信息: ${JSON.stringify(userInfo)}`;
+      if (userInfo && userInfo.token) {
+        isLogined.value = true;
+      } else {
+        isLogined.value = false;
+      }
     })
     .catch((err) => {
+      isLogined.value = false;
       console.log('err', err);
     });
 };
 // 模拟登录,3秒后存入存储
 const onClickLogin = () => {
-  uni.navigateTo({
-    url: '/pages/login/index'
-  });
-};
-const onClickLogout = () => {
-  uni.showLoading({
-    title: '退出中'
-  });
-  setTimeout(() => {
-    uni.hideLoading();
-    setUserInfo({} as any);
-    message.value = JSON.stringify(getUserInfo());
-    uni.showToast({
-      title: '退出成功'
+  if (isLogined.value) {
+    uni.showLoading({
+      title: '退出中'
     });
-  }, 2000);
+    setTimeout(() => {
+      uni.hideLoading();
+      setUserInfo({} as any);
+      message.value = JSON.stringify('');
+      isLogined.value = false;
+      uni.showToast({
+        title: '退出成功'
+      });
+    }, 1000);
+  } else {
+    uni.navigateTo({
+      url: '/pages/login/index'
+    });
+    uni.$once('onGetResult', (data: any) => {
+      onClickGetUserInfo();
+      console.log('登录返回数据', data);
+    });
+  }
 };
 const onClickUA = () => {
   console.log(uni.getSystemInfoSync().ua);
-  userAgent.value = uni.getSystemInfoSync().ua;
+  message.value = `UserAgent: ${uni.getSystemInfoSync().ua}`;
 };
 const onClickJSSDK = () => {
   // Utils.jsdk((obj: any) => {

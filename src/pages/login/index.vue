@@ -24,9 +24,11 @@
         right-icon="send"
         @iconClick="sendCode"
       />
-      <u-button type="primary" size="medium" @click="sendCode">
-        {{ countdown !== 0 ? `${countdown}s` : '发送验证码' }}
-      </u-button>
+      <view class="w-28 flex flex-row justify-end">
+        <button type="primary" size="mini" @click="sendCode">
+          {{ countdown !== 0 ? `${countdown}s` : '发送验证码' }}
+        </button>
+      </view>
     </view>
     <text class="text-sm text-gray-600" v-if="showCode">验证码: 123456</text>
     <u-button @click="login">登录</u-button>
@@ -34,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { getCurrentInstance, ref } from 'vue';
 import { useUserStore } from '@/store';
 
 const phone = ref('');
@@ -91,6 +93,9 @@ const login = () => {
     };
     const userStore = useUserStore();
     userStore.setUser(userInfo);
+    uni.$emit('onGetResult', {
+      data: userInfo
+    });
     uni.showToast({
       title: '登录成功'
     });
