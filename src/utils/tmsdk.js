@@ -113,8 +113,7 @@ const Utils = {
     }
 
     function min() {
-      console.log('登录？？？？？', tmLogin);
-      if (!tmLogin) return;
+      console.log('需要登录？？？？？', tmLogin);
       // 判断用户是否登陆
       window.CP.isLogin({
         completed(data) {
@@ -122,7 +121,7 @@ const Utils = {
           // data === 1 登陆成功，然后获取用户信息
           if (data.is_login === '1') {
             getUserInfo();
-          } else {
+          } else if (tmLogin) {
             window.CP.showLogin({
               completed(data) {
                 // data > {unique_id: '', account_id: '', is_login: ''}
@@ -134,6 +133,10 @@ const Utils = {
               cpIncompatible() {
                 window.CP.tools.writelog('', '此环境不支持此方法');
               }
+            });
+          } else {
+            callback({
+              code: 404
             });
           }
         },
