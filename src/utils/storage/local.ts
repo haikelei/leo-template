@@ -24,22 +24,11 @@ export function createLocalStorage(options?: {
     };
 
     const json = crypto ? enCrypto(storageData) : JSON.stringify(storageData);
-    // #ifdef H5
-    window.localStorage.setItem(key, json);
-    // #endif
-    // #ifdef MP
     uni.setStorageSync(key, json);
-    // #endif
   }
 
   function get(key: string) {
-    let json: string | null;
-    // #ifdef H5
-    json = window.localStorage.getItem(key);
-    // #endif
-    // #ifdef MP
-    json = uni.getStorageSync(key);
-    // #endif
+    const json = uni.getStorageSync(key);
     if (json) {
       let storageData: StorageData | null = null;
 
@@ -62,28 +51,16 @@ export function createLocalStorage(options?: {
   }
 
   function remove(key: string) {
-    // #ifdef H5
-    window.localStorage.removeItem(key);
-    // #endif
-    // #ifdef MP
     uni.removeStorageSync(key);
-    // #endif
   }
 
   function clear() {
-    // #ifdef H5
-    window.localStorage.clear();
-    // #endif
-    // #ifdef MP
     uni.clearStorageSync();
-    // #endif
   }
 
   return {
     set,
-    get,
-    remove,
-    clear
+    get
   };
 }
 
