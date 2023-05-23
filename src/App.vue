@@ -14,4 +14,5 @@ onHide(() => {
 <style lang="scss">
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
+@import './common/uni.css';
 </style>

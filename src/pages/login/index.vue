@@ -1,7 +1,7 @@
 <template>
   <view class="index-page">
     <view class="u-form-group">
-      <u-input
+      <input
         :border="true"
         type="number"
         v-model="phone"
@@ -12,7 +12,7 @@
       />
     </view>
     <view class="u-form-group flex flex-row">
-      <u-input
+      <input
         class="flex-1"
         :border="true"
         type="number"
@@ -31,7 +31,7 @@
       </view>
     </view>
     <text class="text-sm text-gray-600" v-if="showCode">验证码: 123456</text>
-    <u-button @click="login">登录</u-button>
+    <button @click="login">登录</button>
   </view>
 </template>
 

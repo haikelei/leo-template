@@ -16,8 +16,3 @@ declare module '@/utils/tmsdk.js' {
   const TMSDK: any; // use 'any' if you're not sure what type to use
   export default TMSDK;
 }
-
-declare module 'vk-uview-ui' {
-  const uView: any; // use 'any' if you're not sure what type to use
-  export default uView;
-}

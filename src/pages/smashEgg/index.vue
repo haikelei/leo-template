@@ -2,7 +2,10 @@
   <view class="page-smash-egg">
     <!-- 背景图 -->
     <view class="bgc">
-      <image src="@/static/images/bgc.png" mode="widthFix" />
+      <image
+        src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/bgc.png"
+        mode="widthFix"
+      />
     </view>
     <!-- 主要部分 -->
     <view class="main-title">100%中奖你还在等什么</view>
@@ -16,7 +19,7 @@
           <view class="item" @tap.stop="smash(item)">
             <!-- 蛋 -->
             <image
-              src="@/static/images/egg.png"
+              src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/egg.png"
               mode="aspectFill"
               class="egg"
               v-if="item.eggVisibel == true"
@@ -24,7 +27,7 @@
 
             <!-- 砸蛋阶段1 -->
             <image
-              src="@/static/images/step-1.png"
+              src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/step-1.png"
               mode="aspectFill"
               class="step1"
               v-if="item.step1Visibel == true"
@@ -32,7 +35,7 @@
 
             <!-- 砸蛋阶段2 -->
             <image
-              src="@/static/images/step-2.png"
+              src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/step-2.png"
               mode="aspectFill"
               class="step2"
               v-if="item.step2Visibel == true"
@@ -40,7 +43,7 @@
 
             <!-- 砸蛋阶段3 -->
             <image
-              src="@/static/images/step-3.png"
+              src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/step-3.png"
               mode="aspectFill"
               class="step3"
               v-if="item.step3Visibel == true"
@@ -48,7 +51,7 @@
 
             <!-- 未中奖 -->
             <image
-              src="@/static/images/no-general.png"
+              src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/no-general.png"
               mode="aspectFill"
               class="no-general"
               v-if="item.winLotter == true"
@@ -56,7 +59,10 @@
 
             <!-- 锤子 -->
             <view class="hammer" v-if="item.hammerVisible == true">
-              <image src="@/static/images/hammer.png" mode="aspectFill" />
+              <image
+                src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/hammer.png"
+                mode="aspectFill"
+              />
             </view>
           </view>
         </view>
@@ -73,7 +79,7 @@
     <u-popup v-model="prizeVisible" mode="center">
       <view class="prize">
         <image
-          src="@/static/images/prize.png"
+          src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/prize.png"
           mode="aspectFill"
           class="prize-bgc"
         />
@@ -97,7 +103,10 @@
       </view>
       <!-- 关闭按钮 -->
       <view class="close" @tap="closePrize">
-        <image src="@/static/images/close.png" mode="aspectFill" />
+        <image
+          src="https://model-tianmunews.oss-cn-hangzhou.aliyuncs.com/model/LightPicture/close.png"
+          mode="aspectFill"
+        />
       </view>
     </u-popup>
   </view>
