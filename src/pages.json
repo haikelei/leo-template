@@ -14,9 +14,21 @@
       }
     },
     {
-      "path": "pages/pinia/index",
+      "path": "pages/extra-components/index",
       "style": {
-        "navigationBarTitleText": "状态管理工具（pinia）"
+        "navigationBarTitleText": "扩展组件"
+      }
+    },
+    {
+      "path": "pages/api/index",
+      "style": {
+        "navigationBarTitleText": "API能力"
+      }
+    },
+    {
+      "path": "pages/biz-demo/index",
+      "style": {
+        "navigationBarTitleText": "业务相关"
       }
     },
     {
@@ -168,21 +180,343 @@
       "style": {
         "navigationBarTitleText": "textarea"
       }
+    },
+    {
+      "path": "pages/component/navigator/navigator",
+      "style": {
+        "navigationBarTitleText": "navigator"
+      }
+    },
+    {
+      "path": "pages/component/navigator/navigate/navigate",
+      "style": {
+        "navigationBarTitleText": "navigatePage"
+      }
+    },
+    {
+      "path": "pages/component/navigator/redirect/redirect",
+      "style": {
+        "navigationBarTitleText": "redirectPage"
+      }
+    },
+    {
+      "path": "pages/component/image/image",
+      "style": {
+        "navigationBarTitleText": "image"
+      }
+    },
+    {
+      "path": "pages/component/video/video",
+      "style": {
+        "navigationBarTitleText": "video"
+      }
+    },
+    {
+      "path": "pages/component/map/map",
+      "style": {
+        "navigationBarTitleText": "map"
+      }
+    },
+    {
+      "path": "pages/component/canvas/canvas",
+      "style": {
+        "navigationBarTitleText": "canvas"
+      }
+    },
+    {
+      "path": "pages/component/web-view/web-view",
+      "style": {
+        "navigationBarTitleText": "web-view"
+      }
+    },
+    {
+      "path": "pages/extUI/badge/badge",
+      "style": {
+        "navigationBarTitleText": "badge"
+      }
+    },
+    {
+      "path": "pages/extUI/breadcrumb/breadcrumb",
+      "style": {
+        "navigationBarTitleText": "breadcrumb"
+      }
+    },
+    {
+      "path": "pages/extUI/card/card",
+      "style": {
+        "navigationBarTitleText": "card"
+      }
+    },
+    {
+      "path": "pages/extUI/collapse/collapse",
+      "style": {
+        "navigationBarTitleText": "collapse"
+      }
+    },
+    {
+      "path": "pages/extUI/combox/combox",
+      "style": {
+        "navigationBarTitleText": "combox"
+      }
+    },
+    {
+      "path": "pages/extUI/countdown/countdown",
+      "style": {
+        "navigationBarTitleText": "countdown"
+      }
+    },
+    {
+      "path": "pages/extUI/data-checkbox/data-checkbox",
+      "style": {
+        "navigationBarTitleText": "data-checkbox"
+      }
+    },
+    {
+      "path": "pages/extUI/data-picker/data-picker",
+      "style": {
+        "navigationBarTitleText": "data-picker"
+      }
+    },
+    {
+      "path": "pages/extUI/data-select/data-select",
+      "style": {
+        "navigationBarTitleText": "data-select"
+      }
+    },
+    {
+      "path": "pages/extUI/dateformat/dateformat",
+      "style": {
+        "navigationBarTitleText": "dateformat"
+      }
+    },
+    {
+      "path": "pages/extUI/datetime-picker/datetime-picker",
+      "style": {
+        "navigationBarTitleText": "datetime-picker"
+      }
+    },
+    {
+      "path": "pages/extUI/drawer/drawer",
+      "style": {
+        "navigationBarTitleText": "drawer"
+      }
+    },
+    {
+      "path": "pages/extUI/easyinput/easyinput",
+      "style": {
+        "navigationBarTitleText": "easyinput"
+      }
+    },
+    {
+      "path": "pages/extUI/fab/fab",
+      "style": {
+        "navigationBarTitleText": "fab"
+      }
+    },
+    {
+      "path": "pages/extUI/fav/fav",
+      "style": {
+        "navigationBarTitleText": "fav"
+      }
+    },
+    {
+      "path": "pages/extUI/file-picker/file-picker",
+      "style": {
+        "navigationBarTitleText": "file-picker"
+      }
+    },
+    {
+      "path": "pages/extUI/forms/forms",
+      "style": {
+        "navigationBarTitleText": "forms"
+      }
+    },
+    {
+      "path": "pages/extUI/goods-nav/goods-nav",
+      "style": {
+        "navigationBarTitleText": "goods-nav"
+      }
+    },
+    {
+      "path": "pages/extUI/grid/grid",
+      "style": {
+        "navigationBarTitleText": "grid"
+      }
+    },
+    {
+      "path": "pages/extUI/group/group",
+      "style": {
+        "navigationBarTitleText": "group"
+      }
+    },
+    {
+      "path": "pages/extUI/icons/icons",
+      "style": {
+        "navigationBarTitleText": "icons"
+      }
+    },
+    {
+      "path": "pages/extUI/indexed-list/indexed-list",
+      "style": {
+        "navigationBarTitleText": "indexed-list"
+      }
+    },
+    {
+      "path": "pages/extUI/link/link",
+      "style": {
+        "navigationBarTitleText": "link"
+      }
+    },
+    {
+      "path": "pages/extUI/list/list",
+      "style": {
+        "navigationBarTitleText": "list"
+      }
+    },
+    {
+      "path": "pages/extUI/load-more/load-more",
+      "style": {
+        "navigationBarTitleText": "load-more"
+      }
+    },
+    {
+      "path": "pages/extUI/nav-bar/nav-bar",
+      "style": {
+        "navigationBarTitleText": "nav-bar"
+      }
+    },
+    {
+      "path": "pages/extUI/notice-bar/notice-bar",
+      "style": {
+        "navigationBarTitleText": "notice-bar"
+      }
+    },
+    {
+      "path": "pages/extUI/number-box/number-box",
+      "style": {
+        "navigationBarTitleText": "number-box"
+      }
+    },
+    {
+      "path": "pages/extUI/pagination/pagination",
+      "style": {
+        "navigationBarTitleText": "pagination"
+      }
+    },
+    {
+      "path": "pages/extUI/popup/popup",
+      "style": {
+        "navigationBarTitleText": "popup"
+      }
+    },
+    {
+      "path": "pages/extUI/rate/rate",
+      "style": {
+        "navigationBarTitleText": "rate"
+      }
+    },
+    {
+      "path": "pages/extUI/row/row",
+      "style": {
+        "navigationBarTitleText": "row"
+      }
+    },
+    {
+      "path": "pages/extUI/search-bar/search-bar",
+      "style": {
+        "navigationBarTitleText": "search-bar"
+      }
+    },
+    {
+      "path": "pages/extUI/section/section",
+      "style": {
+        "navigationBarTitleText": "section"
+      }
+    },
+    {
+      "path": "pages/extUI/segmented-control/segmented-control",
+      "style": {
+        "navigationBarTitleText": "segmented-control"
+      }
+    },
+    {
+      "path": "pages/extUI/steps/steps",
+      "style": {
+        "navigationBarTitleText": "steps"
+      }
+    },
+    {
+      "path": "pages/extUI/swipe-action/swipe-action",
+      "style": {
+        "navigationBarTitleText": "swipe-action"
+      }
+    },
+    {
+      "path": "pages/extUI/swiper-dot/swiper-dot",
+      "style": {
+        "navigationBarTitleText": "swiper-dot"
+      }
+    },
+    {
+      "path": "pages/extUI/table/table",
+      "style": {
+        "navigationBarTitleText": "table"
+      }
+    },
+    {
+      "path": "pages/extUI/tag/tag",
+      "style": {
+        "navigationBarTitleText": "tag"
+      }
+    },
+    {
+      "path": "pages/extUI/title/title",
+      "style": {
+        "navigationBarTitleText": "title"
+      }
+    },
+    {
+      "path": "pages/extUI/tooltip/tooltip",
+      "style": {
+        "navigationBarTitleText": "tooltip"
+      }
+    },
+    {
+      "path": "pages/extUI/transition/transition",
+      "style": {
+        "navigationBarTitleText": "transition"
+      }
     }
   ],
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
+    "selectedColor": "#3B7CF7",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/inner-components/index",
-        "text": "组件"
+        "iconPath": "/static/component.png",
+        "selectedIconPath": "/static/componentHL.png",
+        "text": "内置组件"
       },
       {
-        "pagePath": "pages/pinia/index",
-        "text": "API"
+        "pagePath": "pages/api/index",
+        "iconPath": "/static/api.png",
+        "selectedIconPath": "/static/apiHL.png",
+        "text": "API能力"
+      },
+      {
+        "pagePath": "pages/extra-components/index",
+        "iconPath": "/static/component.png",
+        "selectedIconPath": "/static/componentHL.png",
+        "text": "扩展组件"
+      },
+      {
+        "pagePath": "pages/biz-demo/index",
+        "iconPath": "/static/template.png",
+        "selectedIconPath": "/static/templateHL.png",
+        "text": "业务"
       }
     ]
   },

@@ -140,14 +140,6 @@ export default {
           name: '网页',
           open: false,
           pages: ['web-view']
-        },
-        // #endif
-        // #ifndef H5 || MP-BAIDU || QUICKAPP-WEBVIEW || MP-LARK || MP-JD
-        {
-          id: 'ad',
-          url: 'ad',
-          name: 'AD组件',
-          open: false
         }
         // #endif
       ]

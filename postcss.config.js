@@ -8,7 +8,7 @@ import cssByebye from 'css-byebye';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 
-const uniInputDir: string = process.env.UNI_INPUT_DIR as string;
+const uniInputDir = process.env.UNI_INPUT_DIR;
 
 export default {
   plugins: [
@@ -16,9 +16,11 @@ export default {
       resolve(id) {
         if (id.startsWith('~@/')) {
           return path.resolve(uniInputDir, id.substr(3));
-        } else if (id.startsWith('@/')) {
+        }
+        if (id.startsWith('@/')) {
           return path.resolve(uniInputDir, id.substr(2));
-        } else if (id.startsWith('/') && !id.startsWith('//')) {
+        }
+        if (id.startsWith('/') && !id.startsWith('//')) {
           return path.resolve(uniInputDir, id.substr(1));
         }
         return id;

@@ -41,7 +41,7 @@ export default {
         }
       ],
       strings:
-        '<div style="text-align:center;"><img src="https://web-assets.dcloud.net.cn/unidoc/zh/uni@2x.png"/></div>'
+        '<div style="text-align:center;"><image src="https://web-assets.dcloud.net.cn/unidoc/zh/uni@2x.png"/></div>'
     };
   }
 };
