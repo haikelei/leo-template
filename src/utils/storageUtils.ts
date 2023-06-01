@@ -1,4 +1,5 @@
 import { UserInfo } from '@/types';
+import uniapp from '@dcloudio/uni-cli-shared/dist/postcss/plugins/uniapp';
 
 export const setUserInfoStorage = (userInfo: UserInfo) => {
   uni.setStorageSync('userInfo', userInfo);

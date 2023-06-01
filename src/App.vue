@@ -15,4 +15,8 @@ onHide(() => {
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
 @import './common/uni.css';
+
+page {
+  height: 100%;
+}
 </style>
